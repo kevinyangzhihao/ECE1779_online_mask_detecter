@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Image Test</title>
+  </head>
+
+  <body>
+    <h1>Image Test</h1>
+    <p><a href="{{url_for('upload_form')}}">Back</a></p>
+    <p> {{description}} </p>
+    <img src="{{ url_for('static', filename=img) }}">
+  </body>
+</html>

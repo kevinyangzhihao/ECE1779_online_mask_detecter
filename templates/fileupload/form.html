@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Upload Image</title>
+  </head>
+
+  <body>
+    <h1>Upload Image</h1>
+    <div style="padding: 0px 0px 16px 0px">
+      <form action="{{url_for('main')}}" method='get'>
+          <input type='submit' value='Home Page'/ >
+      </form>
+    </div>
+     <form action="/test/FileUpload"  enctype="multipart/form-data" method="post">
+
+   	  What is the image files to upload? <input type="file" name="uploadedfile" accept="image/*"><br />
+
+   	  <input type="submit" value="Send">
+	    <input type="reset">
+    </form>
+    
+    
+    <form action="/test/FileUpload"  method="get">
+
+   	  What is the image file url? <input type="text" name="imageUrl"><br />
+
+   	  <input type="submit" value="Send">
+	    <input type="reset">
+    </form><br>
+
+    <div class="error">{{error_msg if error_msg != None}}</div>
+
+  </body>
+</html>
