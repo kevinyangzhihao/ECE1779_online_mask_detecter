@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+{% for uri in chart_uri %}
+    <p>Worker: {{uri[0]}}</p>
+    <img src = {{uri[1]}} alt/>
+{% endfor %}
+
+{% for uri in chart_uri_packets %}
+    <p>Worker: {{uri[0]}}</p>
+    <img src = {{uri[1]}} alt/>
+{% endfor %}
+
+{% endblock %}

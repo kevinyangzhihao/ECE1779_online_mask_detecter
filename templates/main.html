@@ -10,28 +10,47 @@
 
         <ul>
             <li>
-                <form action = "{{url_for('user_list')}}" method = "get">
-                    <input type = "submit" value = "User Management">
+                <form action = "{{url_for('worker_add')}}" method = "post" onSubmit = "return disableButton(this);">
+                    <input type = "submit" name = "SubmitButton" value = "Add a worker">
                 </form>
             </li>
 
             <li>
-                <form action = "{{url_for('password_change')}}" method = "get">
-                    <input type = "submit" value = "Change your password">
+                <form action = "{{url_for('worker_remove')}}" method = "post" onSubmit = "return disableButton(this);">
+                    <input type = "submit" name = "SubmitButton" value = "Remove a worker">
                 </form>
             </li>
 
             <li>
-                <form action = "{{url_for('upload_form')}}" method = "get">
-                    <input type = "submit" value = "Mask Detection">
+                <form action = "{{url_for('worker_list')}}" method = "get">
+                    <input type = "submit" value = "Worker list">
                 </form>
             </li>
 
             <li>
-                <form action = "{{url_for('history')}}" method = "get">
-                    <input type = "submit" value = "Show Upload History">
+                <form action = "{{url_for('param_form')}}" method = "get" >
+                    <input type = "submit" value = "Autoscaler">
                 </form>
             </li>
+
+            <li>
+            <form action = "{{url_for('deletedata')}}">
+                <input type = "submit" value = "Clear RDS and S3 data">
+            </form>
+            </li>
+            
+            <li>
+                <form action="http://1779-Load-Balancer-1497432048.us-east-1.elb.amazonaws.com">
+                    <input type="submit" value="Go to entry URL" />
+                </form>
+            </li>
+
+            <li>
+            <form action = "{{url_for('stopmanager')}}">
+                <input type = "submit" value = "Terminate workers and stop manager">
+            </form>
+            </li>
+
 
             <li>
             <form action = "{{url_for('logout')}}">
@@ -39,6 +58,17 @@
             </form>
             </li>
         </ul>
+
+        <p>Worker Number Status</p>
+        <img src = {{uri}} alt/>
     </body>
 
 </html>
+
+<script type = "text/javascript">
+function disableButton(form)
+{
+    form.SubmitButton.disabled = true;
+    return true;
+}
+</script>
